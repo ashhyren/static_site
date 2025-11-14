@@ -1,10 +1,7 @@
-print("Hello World")
-
-from textnode import *
+from copystatic import copy_refresh
 
 def main():
-    test = TextNode("This is a sample", TextType.LINK, "https://www.boot.dev")
-    print(test)
+    copy_refresh("static","public")
 
 main()
 
