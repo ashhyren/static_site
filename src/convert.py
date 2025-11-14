@@ -45,19 +45,19 @@ def block_to_text(block, block_type):
     if block_type is BlockType.QUOTE:
         clean = []
         for line in lines:
-            clean.append(re.match(r"^(>\s+)(.*)",line).group(2))
+            clean.append(re.match(r"^(>\s?)(.*)",line).group(2))
         return " ".join(clean)
     #Unordered
     if block_type is BlockType.UNORDERED_LIST:
         clean = []
         for line in lines:
-            clean.append(re.match(r"^(-\s+)(.*)", line).group(2))
+            clean.append(re.match(r"^(-\s?)(.*)", line).group(2))
         return "\n".join(clean)
     #Ordered
     if block_type is BlockType.ORDERED_LIST:
         clean = []
         for line in lines:
-            clean.append(re.match(r"^(\d+\.\s+)(.*)", line).group(2))
+            clean.append(re.match(r"^(\d+\.\s?)(.*)", line).group(2))
         return "\n".join(clean)
     if block_type is BlockType.PARAGRAPH:
         clean = []
